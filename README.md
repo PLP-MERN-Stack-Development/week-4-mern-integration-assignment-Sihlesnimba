@@ -1,79 +1,157 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19902609&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
+# 📝 MERN Blog Application
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-stack blog platform built with the **MERN Stack**: MongoDB, Express.js, React.js, and Node.js. This app allows users to create, edit, and delete blog posts with image uploads, user authentication, pagination, filtering, and comments.
 
-## Assignment Overview
-
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
-
-## Project Structure
+## 📦 Project Structure
 
 ```
 mern-blog/
 ├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   └── App.jsx
+│   ├── .env.example
+│   └── package.json
 ├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
+│   ├── server.js
+│   ├── .env.example
+│   └── package.json
+└── README.md
 ```
 
-## Getting Started
+---
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+## ⚙️ Setup Instructions
 
-## Files Included
+### ✅ Prerequisites
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+- Node.js v18+
+- MongoDB (local or Atlas)
 
-## Requirements
+### 🚀 Clone the Repository
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+```bash
+git clone https://github.com/PLP-MERN-Stack-Development/week-4-mern-integration-assignment-Sihlesnimba.git
+cd week-4-mern-integration-assignment-Sihlesnimba
+```
 
-## Submission
+### 🔧 Setup Server
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+```bash
+cd server
+cp .env.example .env
+npm install
+npm run dev
+```
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+### 🔧 Setup Client
 
-## Resources
+```bash
+cd client
+cp .env.example .env
+npm install
+npm run dev
+```
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+---
+
+## 🔐 .env.example Files
+
+### 📁 server/.env.example
+
+```
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/mern_blog
+JWT_SECRET=your_jwt_secret_key
+NODE_ENV=development
+```
+
+### 📁 client/.env.example
+
+```
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+
+---
+
+## 🛠️ Features Implemented
+
+- ✅ Create, Read, Update, Delete (CRUD) blog posts
+- ✅ Image uploads using `multer`
+- ✅ User authentication (JWT-based)
+- ✅ Protected routes for creating/updating posts
+- ✅ Pagination for post listing
+- ✅ Keyword search & category filtering
+- ✅ Comment system with user info
+- ✅ React Router for page navigation
+- ✅ Responsive UI with form validation
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home](./client/public/screenshots/Home.png)
+
+### ➕ Create Post
+
+![Create](./client/public/screenshots/createPost.png)
+
+## 📚 API Endpoints
+
+### 🔐 Auth
+
+- `POST /api/auth/register` — Register user
+- `POST /api/auth/login` — Login user
+
+### 📝 Posts
+
+- `GET /api/posts` — List posts (supports `page`, `limit`, `keyword`, `category`)
+- `GET /api/posts/:id` — Get single post
+- `POST /api/posts` — Create post _(protected)_
+- `PUT /api/posts/:id` — Update post _(protected)_
+- `DELETE /api/posts/:id` — Delete post _(protected)_
+
+### 📤 Uploads
+
+- `POST /api/upload` — Upload image _(protected)_
+
+### 💬 Comments
+
+- `POST /api/comments/:id` — Add comment to post _(protected)_
+- `GET /api/comments/:id` — Get all comments for post
+
+---
+
+## 📦 Tech Stack
+
+- MongoDB + Mongoose
+- Express.js + Node.js
+- React + Vite
+- JWT + bcrypt
+- Multer (file uploads)
+- React Router + Axios + Hooks
+
+---
+
+## ✅ Submission
+
+- [x] Code pushed to GitHub Classroom repo
+- [x] `.env.example` included in both client and server
+- [x] Functional full-stack MERN application
+- [x] Complete README with setup, features, and screenshots
+
+---
+
+> Built by Sihle Snimba for Week 4: MERN Integration Assignment
